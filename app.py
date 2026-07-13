@@ -25,16 +25,21 @@ app.layout = [
     dcc.Graph(figure={}, id='GPA_Scatter'),
     html.Hr(),
 
-    html.H2("Exploring the effects of AI usage on learning metrics"), #for the last graph
+    html.H2("Exploring the effects of Gen AI usage on learning metrics"), #for the last graph
     dcc.Dropdown(options=['All', 'Humanities', 'Medical', 'Business', 'STEM', 'Arts'], value='All', id='majors-dropdown'),
     dcc.Graph(figure={}, id='Skill_Retention_Heatmap'),
     dcc.Graph(figure={}, id='AI_Dependency_Heatmap'),
     html.Hr(),
 
-    html.H2("Does AI affect stress levels during exams?"),
+    html.H2("Does Gen AI affect stress levels during exams?"),
     dcc.Dropdown(options=['All', 'Humanities', 'Medical', 'Business', 'STEM', 'Arts'], value='All', id='majors-dropdown2'),
     dcc.Graph(figure={}, id='AI_Anxiety_Levels_Box'),
-    dcc.Graph(figure={}, id='Trad_Anxiety_Levels_Box')
+    dcc.Graph(figure={}, id='Trad_Anxiety_Levels_Box'),
+    html.Hr(),
+
+    html.H2("How does GPA change over the semester with the use of Gen AI (Bubble size = Weekly Gen AI usage)"),
+    dcc.RadioItems(options=['Humanities', 'Medical', 'Business', 'STEM', 'Arts'], value='Humanities', inline=True, id='majors-radio-item2'),
+    dcc.Graph(figure={}, id="Pre_Post_GPA_Scatter")
 ]
 
 @callback(
@@ -44,13 +49,15 @@ app.layout = [
     Output(component_id='AI_Dependency_Heatmap', component_property='figure'),
     Output(component_id='AI_Anxiety_Levels_Box', component_property='figure'),
     Output(component_id='Trad_Anxiety_Levels_Box', component_property='figure'),
+    Output(component_id='Pre_Post_GPA_Scatter', component_property='figure'),
     Input(component_id='general-info-radio-item', component_property='value'),
     Input(component_id='majors-radio-item', component_property='value'),
     Input(component_id='majors-dropdown', component_property='value'),
-    Input(component_id='majors-dropdown2', component_property='value')
+    Input(component_id='majors-dropdown2', component_property='value'),
+    Input(component_id='majors-radio-item2', component_property='value')
 )
 
-def update_graph(col_chosen, radio_major, dropdown_major, dropdown_major2):
+def update_graph(col_chosen, radio_major, dropdown_major, dropdown_major2, radio_major2):
     def filter_major(major):
         if major == "All":
             return df
@@ -69,8 +76,11 @@ def update_graph(col_chosen, radio_major, dropdown_major, dropdown_major2):
     filtered_df_box = filter_major(dropdown_major2)
     ai_anxiety_box = px.box(filtered_df_box, x='Anxiety_Level_During_Exams', y='Weekly_GenAI_Hours', points ='outliers')
     trad_anxiety_box = px.box(filtered_df_box, x='Anxiety_Level_During_Exams', y='Traditional_Study_Hours', points ='outliers')
+
+    filtered_df_scatter = filter_major(radio_major2)
+    pre_post_scatter = px.scatter(filtered_df_scatter, x='Post_Semester_GPA', y='Pre_Semester_GPA', size='Weekly_GenAI_Hours', opacity=0.35, trendline="ols")
     
-    return major_histogram, gpa_scatter, skill_heatmap, ai_heatmap, ai_anxiety_box, trad_anxiety_box
+    return major_histogram, gpa_scatter, skill_heatmap, ai_heatmap, ai_anxiety_box, trad_anxiety_box, pre_post_scatter
 
 if __name__ == '__main__':
     app.run(debug=True)
