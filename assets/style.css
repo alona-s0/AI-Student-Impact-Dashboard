@@ -1,0 +1,53 @@
+.dark-dropdown{
+    background-color: #161617;
+}
+
+.ag-root-wrapper {
+    background: #111111 !important;
+    color: white !important;
+}
+
+.ag-header {
+    background: #1b1b1b !important;
+}
+
+.ag-header-cell {
+    color: white !important;
+}
+
+.ag-row {
+    background: #111111 !important;
+    color: white !important;
+}
+
+.ag-row:nth-child(even) {
+    background: #181818 !important;
+}
+
+.ag-cell {
+    color: white !important;
+}
+
+.ag-root-wrapper,
+.ag-cell,
+.ag-header-cell {
+    border-color: #333 !important;
+}
+
+.js-plotly-plot {
+    background: black !important;
+}
+
+.plot-container {
+    background: black !important;
+}
+
+.svg-container {
+    background: black !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+}
