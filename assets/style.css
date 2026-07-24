@@ -1,4 +1,4 @@
-.dark-dropdown{
+.dark-dropdown {
     background-color: #161617;
 }
 
@@ -50,4 +50,80 @@ body {
     margin: 0;
     padding: 0;
     background: black;
+}
+
+.header-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 25px;
+    border: 3px solid #6f6cff;
+}
+
+.header-heading2 {
+    margin: 0;
+    color: white;
+}
+
+.header-paragraphs {
+    margin: 0;
+    color: #9e9e9e;
+}
+
+.header-outline {
+    margin-top: 12px;
+    color: #cfcfcf;
+    max-width: 600px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background-color: #111111;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.center-headings {
+    text-align: center;
+}
+
+.dropdowns {
+    border: 0.5px solid white;
+    border-radius: 3px;
+}
+
+.combined-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.graph-height {
+    height: 450px;
+}
+
+.horizontal-rule {
+    margin-top: 5px;
+}
+
+.paragraph-color {
+    color: white;
+    margin-top: 10px;
+}
+
+.double-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2%;
+}
+
+.whole-body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    padding: 5%;
 }
