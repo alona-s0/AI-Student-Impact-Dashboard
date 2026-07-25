@@ -1,0 +1,6 @@
+dash==3.2.0
+dash-ag-grid==35.2.0
+pandas==3.0.3
+plotly==6.8.0
+statsmodels==0.14.6
+gunicorn==23.0.0

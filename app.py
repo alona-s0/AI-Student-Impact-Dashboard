@@ -2,7 +2,9 @@ from dash import Dash
 from layout import create_layout
 from callbacks import register_callbacks
 
-app = Dash()
+app = Dash(__name__)
+
+server = app.server
 
 app.layout = create_layout()
 
