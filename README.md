@@ -2,6 +2,10 @@
 
 An interactive data visualisation dashboard built with **Python**, **Dash**, and **Plotly** to explore how Generative AI usage influences students' academic performance, study habits, skill retention, and anxiety levels.
 
+## Live Demo
+
+https://ai-student-impact-dashboard.onrender.com
+
 ## Overview
 
 This project analyses a student dataset using interactive visualisations. These visualisations allow the users to investigate how Generative AI influences students' academic performance and learning behaviours.
