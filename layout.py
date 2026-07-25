@@ -19,13 +19,13 @@ header = html.Div(
                 html.P(
                     "University College Cork", className='header-paragraphs'),
                 html.P(
-                    "Interactive dashboard analysing the impact of Generative AI on students.",
+                    "This project was created to analyse how Generative AI influences students' academic performance and learning behaviours. It strengthened my skills in Python, Dash, Plotly, data analysis, and building modular, maintainable web applications.",
                     className='header-outline'
                 ),
             ]
         ),
     ],
-    className='header',
+    className='header'
 )
 
 def create_layout():
@@ -34,7 +34,7 @@ def create_layout():
     return html.Div(
         [
             header,
-            html.H1("AI impact on students", className='center-headings'),
+            html.H1("Interactive dashboard analysing AI impact on students", className='center-headings'),
             html.Div(
                 [
                     html.Div(
@@ -226,6 +226,19 @@ def create_layout():
                 "Larger bubbles represent students who use Gen AI more frequently.",
                 className='paragraph-color'
             ),
+            html.Div([
+                html.H2("Development Highlights"),
+
+                html.Ul([
+                    html.Li("Modular project structure"),
+                    html.Li("Reusable callback functions"),
+                    html.Li("Interactive filtering"),
+                    html.Li("Responsive CSS layout"),
+                    html.Li("Dark theme interface"),
+                    html.Li("Multiple interactive visualisations"),
+                    html.Li("Reduced code duplication")
+                ], className="highlights-section")
+            ]),
             html.H2("Complete Student Dataset", style={"marginTop": "30px"}),
             dag.AgGrid(
                 rowData=df.to_dict("records"),
@@ -237,6 +250,13 @@ def create_layout():
                 "Review individual student records, compare variables, and gain additional context for the patterns shown in the charts.",
                 className='paragraph-color'
             ),
+            html.H2(
+                "Acknowledgements"
+            ),
+            html.Ul([
+                html.Li("Dataset Source: Impact of Ai on Students. Kaggle. https://www.kaggle.com/datasets/laveshjadon/ai-impact-on-students/data"),
+                html.Li("Built using Python, Plotly Dash, Plotly Express, and Pandas")
+            ])
         ],
         className='whole-body'
     )

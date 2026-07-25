@@ -127,3 +127,10 @@ body {
     color: white;
     padding: 5%;
 }
+
+.highlights-section {
+    padding: 3%;
+    background-color: #111111;
+    border: 0.5px solid #cfcfcf;
+    border-radius: 7px;
+}
